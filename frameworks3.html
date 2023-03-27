@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div onclick="show(event)">
+        <button id="ul" ">Számozatlan lista</button>
+        <button id="ol" ">Számozott lista</button>
+        <button id="select" ">Választó lista</button>
+    </div>
+    
+    <hr>
+    <div class="list"></div>
+
+    <script>
+        const frameworks=['NodeJS','ReactJS','jQuery','Express','Angular','VueJS','Django','Laravel']
+
+        function show(e){
+            console.log(e.target.tagName)
+            document.querySelector('.list').innerHTML=''
+            if(e.target.tagName=="BUTTON"){
+                let id=e.target.id;
+                console.log(id)
+                let newObj=document.createElement(id)
+            if(id=='select')
+                newObj.innerHTML=frameworks.map(item=>`<option>${item}</option>`).join('')
+            else
+                newObj.innerHTML=frameworks.map(item=>`<li>${item}</li>`).join('')
+            document.querySelector('.list').appendChild(newObj)
+            }
+            
+        }
+
+    
+    </script>
+</body>
+</html>
